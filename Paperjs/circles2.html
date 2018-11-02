@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Circles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="circles.css">
+    <script type="text/javascript" src="/dist/paper-full.js"></script>
+    <script type="text/javascript">
+        paper.install(window);
+        var circleGrid = new Array(100);
+        for (var x = 0; x < circleGrid.length; x++) {
+            circleGrid[x] = new Array(100);
+        }
+        window.onload = function() {
+            var canvas = document.getElementById('my_canvas');
+            paper.setup(canvas);
+
+            var col = 10;
+            var row = 10;
+            var circleGrid = new Array(100);
+
+            paper.setup(canvas);
+            // Create a Paper.js Path to draw a line into it:
+
+            for (var x = 0; x < circleGrid.length; x++) {
+            circleGrid[x] = new Array(100);
+                for (var y = 0; y < circleGrid.length; y++){
+                    col = 50 * (x) + 20;
+                    row = 50 * (y) + 20;
+                    circleGrid[x][y] = new paper.Path.Circle({                 
+                        center: [col,row],
+                        radius: 10,
+                        fillColor: 'purple'
+                    });
+                }
+            }
+            // Draw the view now:
+		    paper.view.draw();
+        }
+        
+    </script> 
+ 
+</head>
+<body>
+    
+    <canvas id="my_canvas" resize hidpi="off" style="background:black"></canvas>
+</body>
+</html>
